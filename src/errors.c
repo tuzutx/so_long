@@ -6,7 +6,7 @@
 /*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:42:23 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/08 00:01:12 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:12:41 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	printerrortester(t_map *map, t_maptester *tester)
 	}
 	else if (i == 2)
 	{
-		ft_printf("Error: Numero erroneo de salidas (E) entradas (P) o coins (C)\n");
+		ft_printf("Error: Numero erroneo de salidas (E)" 
+			"entradas (P) o coins (C)\n");
 		return (1);
 	}
 	else if (i == 3)
@@ -60,11 +61,39 @@ int	printerrortester(t_map *map, t_maptester *tester)
 		return (0);
 }
 
-int	errors(char *argv)
+int	print_gameerrors(t_game *g)
+{
+	int	res;
+
+	res = window(g, g->map);
+	if (res == 1)
+	{
+		ft_printf("Error: El mapa es muy grande\n");
+		clean_exit(g);
+	}
+	else if (res == 2)
+	{
+		ft_printf("Error: Inicialización de los gráficos falló\n");
+		clean_exit(g);
+	}
+	else if (res == 3)
+	{
+		ft_printf("Error: No se pudeo abrir la ventana\n");
+		clean_exit(g);
+	}
+	res = load_assets(g);
+	if (res == 1)
+	{
+		ft_printf("Error: Error al cargar las imágenes\n");
+		clean_exit(g);
+	}
+	return (0);
+}
+
+int	errors(char *argv, t_game *g)
 {
 	t_map		*map;
 	t_maptester	*tester;
-	int			exit_code;
 
 	map = (t_map *)ft_calloc(1, sizeof(t_map));
 	tester = (t_maptester *)ft_calloc(1, sizeof(t_maptester));
@@ -76,13 +105,16 @@ int	errors(char *argv)
 			free(tester);
 		return (1);
 	}
-	exit_code = 0;
-	if (printerrormap(map, tester, argv) == 1)
-		exit_code = 1;
-	else if (printerrortester(map, tester) == 1)
-		exit_code = 1;
-	free_map_data(map, tester);
-	return (exit_code);
+	if (printerrormap(map, tester, argv) == 1 || printerrortester(map, tester) == 1)
+	{
+		free_map_data(map, tester);
+		return (1);
+	}
+	g->map = map;
+	g->tester = tester;
+	if (print_gameerrors(g) == 1)
+		return (1);
+	return (0);
 }
 
 int	argcerror(void)

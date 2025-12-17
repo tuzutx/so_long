@@ -6,7 +6,7 @@
 #    By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/15 15:43:00 by nolaeche          #+#    #+#              #
-#    Updated: 2025/12/10 16:57:11 by nolaeche         ###   ########.fr        #
+#    Updated: 2025/12/15 18:26:23 by nolaeche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,17 @@ MLX_LDFLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 PRINTF_LDFLAGS = -L$(PRINTF_DIR) -lftprintf
 LIBFT_LDFLAGS = -L$(LIBFT_DIR) -lft
 
-SRCS_FILES = main.c map.c maptester.c maptesteraux.c errors.c freedata.c game.c loadassets.c render.c
+SRCS_FILES = main.c \
+			map.c \
+			maptester.c \
+			maptesteraux.c \
+			errors.c \
+			freedata.c \
+			game.c \
+			loadassets.c \
+			render.c \
+			hooks.c \
+			movements.c
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 SRCS += $(addprefix $(SRCS_DIR)/, $(GNL_FILES))
 
