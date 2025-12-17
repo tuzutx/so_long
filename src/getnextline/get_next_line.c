@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 16:21:36 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/07 21:18:23 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:54:45 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,6 @@ char	*get_next_line(int fd)
 		}
 		return (NULL);
 	}
-	if (fd < 0)
-		return (NULL);
 	line = NULL;
 	readedbytes = 1;
 	if (text && ft_strchrgnl(text, '\n') != NULL)

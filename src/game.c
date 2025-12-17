@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 17:24:49 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/16 10:32:23 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:04:18 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,31 +63,6 @@ int	window(t_game *game, t_map *map)
 	return (0);
 }
 
-/* int	game_errors(t_map *map, t_game *g)
-{
-	if (window(g, map) == 1)
-	{
-		ft_printf("Error: El juego no soporta mapas tan grandes");
-		return (1);
-	}
-	else if (window(g, map) == 2)
-	{
-		ft_printf("Erorr: El iniciador del gráfico falló");
-		return (1);
-	}
-	if (load_assets(g) == 1)
-	{
-		ft_printf("Error: las imágenes no pudeiron cargarse");
-		return (1);
-	}
-	else if (load_assets(g) == 2)
-	{
-		ft_printf("Error: las imágenes no son de 32x32");
-		return (1);
-	}
-	return (0);
-} */
-
 void	game(t_map *map, t_game *g)
 {
 	if (!map || !g || !g->mlx_win)
@@ -97,4 +72,3 @@ void	game(t_map *map, t_game *g)
 	init_hooks(g);
 	mlx_loop(g->mlx);
 }
-

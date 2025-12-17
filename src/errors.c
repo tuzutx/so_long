@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 17:42:23 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/17 12:12:41 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:02:10 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	printerrortester(t_map *map, t_maptester *tester)
 	}
 	else if (i == 2)
 	{
-		ft_printf("Error: Numero erroneo de salidas (E)" 
+		ft_printf("Error: Numero erroneo de salidas (E)"
 			"entradas (P) o coins (C)\n");
 		return (1);
 	}
@@ -57,8 +57,7 @@ int	printerrortester(t_map *map, t_maptester *tester)
 		ft_printf("Error: No hay un camino viable en este mapa\n");
 		return (1);
 	}
-	else
-		return (0);
+	return (0);
 }
 
 int	print_gameerrors(t_game *g)
@@ -105,7 +104,8 @@ int	errors(char *argv, t_game *g)
 			free(tester);
 		return (1);
 	}
-	if (printerrormap(map, tester, argv) == 1 || printerrortester(map, tester) == 1)
+	if (printerrormap(map, tester, argv) == 1
+		|| printerrortester(map, tester) == 1)
 	{
 		free_map_data(map, tester);
 		return (1);

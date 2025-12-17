@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 21:15:19 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/16 11:55:47 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:34:41 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void	moveup(t_game *g, t_map *map, t_maptester *totalcoins)
 		g->catchcoins++;
 		map->grid[g->player_y][g->player_x] = '0';
 	}
-	else if (map->grid[g->player_y][g->player_x] == 'E' && g->catchcoins == totalcoins->coinsfound)
+	else if (map->grid[g->player_y][g->player_x] == 'E'
+		&& g->catchcoins == totalcoins->coinsfound)
 	{
 		render_map(g, map, totalcoins);
 		clean_exit(g);
@@ -49,7 +50,8 @@ void	movedown(t_game *g, t_map *map, t_maptester *totalcoins)
 		g->catchcoins++;
 		map->grid[g->player_y][g->player_x] = '0';
 	}
-	else if (map->grid[g->player_y][g->player_x] == 'E' && g->catchcoins == totalcoins->coinsfound)
+	else if (map->grid[g->player_y][g->player_x] == 'E'
+		&& g->catchcoins == totalcoins->coinsfound)
 	{
 		render_map(g, map, totalcoins);
 		clean_exit(g);
@@ -72,7 +74,8 @@ void	moveleft(t_game *g, t_map *map, t_maptester *totalcoins)
 		g->catchcoins++;
 		map->grid[g->player_y][g->player_x] = '0';
 	}
-	else if (map->grid[g->player_y][g->player_x] == 'E' && g->catchcoins == totalcoins->coinsfound)
+	else if (map->grid[g->player_y][g->player_x] == 'E'
+		&& g->catchcoins == totalcoins->coinsfound)
 	{
 		render_map(g, map, totalcoins);
 		clean_exit(g);
@@ -95,7 +98,8 @@ void	moveright(t_game *g, t_map *map, t_maptester *totalcoins)
 		g->catchcoins++;
 		map->grid[g->player_y][g->player_x] = '0';
 	}
-	else if (map->grid[g->player_y][g->player_x] == 'E' && g->catchcoins == totalcoins->coinsfound)
+	else if (map->grid[g->player_y][g->player_x] == 'E'
+		&& g->catchcoins == totalcoins->coinsfound)
 	{
 		render_map(g, map, totalcoins);
 		clean_exit(g);

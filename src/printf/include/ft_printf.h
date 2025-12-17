@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 17:52:44 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/02 20:27:52 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 12:25:41 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-#include <stddef.h>
+# include <stddef.h>
 # include <stdlib.h>
 # include "../../libft/libft.h"
 

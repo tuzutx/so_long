@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freedata.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 10:50:41 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/17 11:56:18 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:03:38 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 void	free_map_data(t_map *map, t_maptester *tester)
 {
-    int i = 0;
-    if (map && map->grid)
-    {
-        while (i < map->rows)
-            free(map->grid[i++]);
-        free(map->grid);
-    }
-    i = 0;
-    if (tester && tester->visited)
-    {
-        while (i < map->rows)
-            free(tester->visited[i++]);
-        free(tester->visited);
-    }
-    free(map);
-    free(tester);
+	int	i;
+
+	i = 0;
+	if (map && map->grid)
+	{
+		while (i < map->rows)
+			free(map->grid[i++]);
+		free(map->grid);
+	}
+	i = 0;
+	if (tester && tester->visited)
+	{
+		while (i < map->rows)
+			free(tester->visited[i++]);
+		free(tester->visited);
+	}
+	free(map);
+	free(tester);
 }
+
 void	clean_static_image(t_game *g)
 {
 	if (g->wall)

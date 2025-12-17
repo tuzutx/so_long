@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nolaeche <nolaeche@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: nolaeche <nolaeche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 20:06:27 by nolaeche          #+#    #+#             */
-/*   Updated: 2025/12/16 13:23:51 by nolaeche         ###   ########.fr       */
+/*   Updated: 2025/12/17 13:37:10 by nolaeche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,17 @@ void	starting_point(t_map *map, t_game *g)
 
 void	render_player(t_game *g)
 {
-    void *img_to_draw;
-    
-    img_to_draw = g->player_frames[g->current_state][g->current_frame];
-    mlx_put_image_to_window(g->mlx, g->mlx_win, img_to_draw, g->player_x * 32, g->player_y * 32);
+	void	*img_to_draw;
+
+	img_to_draw = g->player_frames[g->current_state][g->current_frame];
+	mlx_put_image_to_window(g->mlx, g->mlx_win,
+		img_to_draw, g->player_x * 32, g->player_y * 32);
 }
 
 void	render_map(t_game *g, t_map *map, t_maptester *coins)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < map->rows)
@@ -55,19 +56,24 @@ void	render_map(t_game *g, t_map *map, t_maptester *coins)
 		j = 0;
 		while (j < map->columns)
 		{
-			//mlx_put_image_to_window(g->mlx, g->mlx_win, g->floor, j * 32, i * 32);
 			if (i == g->player_y && g->player_x == j)
 				render_player(g);
 			else if (map->grid[i][j] == '0')
-				mlx_put_image_to_window(g->mlx, g->mlx_win, g->floor, j * 32, i * 32);
+				mlx_put_image_to_window(g->mlx, g->mlx_win,
+					g->floor, j * 32, i * 32);
 			else if (map->grid[i][j] == '1')
-				mlx_put_image_to_window(g->mlx, g->mlx_win, g->wall, j * 32, i * 32);
+				mlx_put_image_to_window(g->mlx, g->mlx_win,
+					g->wall, j * 32, i * 32);
 			else if (map->grid[i][j] == 'C')
-				mlx_put_image_to_window(g->mlx, g->mlx_win, g->c, j * 32, i * 32);
-			else if (map->grid[i][j] == 'E' && coins->coinsfound != g->catchcoins)
-				mlx_put_image_to_window(g->mlx, g->mlx_win, g->closeddoor, j * 32, i * 32);
+				mlx_put_image_to_window(g->mlx, g->mlx_win,
+					g->c, j * 32, i * 32);
+			else if (map->grid[i][j] == 'E' 
+				&& coins->coinsfound != g->catchcoins)
+				mlx_put_image_to_window(g->mlx, g->mlx_win,
+					g->closeddoor, j * 32, i * 32);
 			else if (map->grid[i][j] == 'E' && coins->coinsfound == g->catchcoins)
-				mlx_put_image_to_window(g->mlx, g->mlx_win, g->opendoor, j * 32, i * 32);
+				mlx_put_image_to_window(g->mlx, g->mlx_win,
+					g->opendoor, j * 32, i * 32);
 			j++;
 		}
 		i++;
